@@ -1,0 +1,37 @@
+{
+  "query": "ai enginieer",
+  "criteria": {
+    "role": "AI Engineer",
+    "location": "Mumbai",
+    "skills": null
+  },
+  "ranked_jobs": [
+    {
+      "title": "AI Engineer",
+      "company": "MSCI",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5785773171?se=LCu4phiO8RGGgO_n0rmdiQ&utm_medium=api&utm_source=fcbaf3fd&v=2185A7049B5506DF1182A45172761BBEF73613FA"
+    },
+    {
+      "title": "Senior AI Engineer",
+      "company": "MSCI",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5790410350?se=LCu4phiO8RGGgO_n0rmdiQ&utm_medium=api&utm_source=fcbaf3fd&v=C8EFA00F255149456A652085465A7BBCF1B6AB6E"
+    },
+    {
+      "title": "Director, AI Engineering Tech Lead",
+      "company": "Pfizer",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5822403448?se=LCu4phiO8RGGgO_n0rmdiQ&utm_medium=api&utm_source=fcbaf3fd&v=B96CB0308C72032B16AE0CE382F8A5F31DA129CC"
+    }
+  ],
+  "resume": "**AI ENGINEER** | Python \u2022 Machine Learning \u2022 MLOps \u2022 Financial Data Science  \n\ud83d\udccd [City, State] | \u260e [Phone] | \u2709 [Email] | \ud83d\udd17 [LinkedIn] | \ud83d\udcbb [GitHub/Portfolio]\n\n---\n\n### PROFESSIONAL SUMMARY\nResults-driven **AI Engineer** with extensive experience in **Python** and the modern ML stack (PyTorch, TensorFlow, Scikit-learn, LangChain). Demonstrated success in designing, training, and deploying scalable machine learning models and LLM-powered applications from prototype to production. Expertise in building robust MLOps pipelines (Docker, Kubernetes, CI/CD, MLflow) and processing high-volume, noisy financial and alternative datasets. Skilled at translating complex business requirements into performant, maintainable AI solutions. Eager to apply advanced Python engineering and domain adaptation capabilities to advance ESG analytics, climate risk modeling, and investment research at **MSCI**.\n\n---\n\n### TECHNICAL PROFICIENCY\n*   **Languages:** **Python (Expert)**, SQL, Bash, C++ (Performance Optimization)\n*   **ML/DL Frameworks:** PyTorch, TensorFlow/Keras, Scikit-learn, Hugging Face Transformers, LangChain, LlamaIndex\n*   **MLOps & Deployment:** Docker, Kubernetes (K8s), Kubeflow, MLflow, Airflow, Prefect, CI/CD (GitLab/GitHub Actions), FastAPI, Flask, ONNX/TensorRT\n*   **Data & Cloud:** Pandas, Polars, NumPy, Spark, Ray, Snowflake, PostgreSQL, Redis, AWS (SageMaker, Lambda, ECS), GCP (Vertex AI), Azure ML\n*   **Specializations:** NLP/LLMs (RAG, Fine-tuning, Prompt Engineering), Time-Series Forecasting, Anomaly Detection, Recommender Systems, Computer Vision, Feature Stores, Vector Databases (Pinecone, Weaviate, Milvus)\n\n---\n\n### PROFESSIONAL EXPERIENCE\n\n**SENIOR AI ENGINEER** | [Current/Recent Company] | [Dates]\n*   **LLM Productionization:** Architected a **RAG-based knowledge retrieval system** using **Python (LangChain/LlamaIndex)**, reducing analyst research time by 40%; deployed on **K8s** with **FastAPI** achieving <200ms latency (p95).\n*   **MLOps Platform:** Built end-to-end **CI/CD/CT pipelines** (GitLab CI, ArgoCD, MLflow) for 15+ models, automating retraining triggers via data drift detection (EvidentlyAI) and cutting deployment cycles from weeks to hours.\n*   **Performance Engineering:** Optimized inference throughput **3x** for transformer models using **ONNX Runtime, quantization (INT8), and TensorRT**, significantly reducing cloud GPU costs (AWS Inferentia/Graviton).\n*   **Financial NLP:** Fine-tuned domain-adapted **FinBERT/DeBERTa** models on SEC filings & earnings calls for sentiment/classification tasks, improving F1-score by 12% over baseline for ESG controversy detection.\n\n**AI ENGINEER** | [Previous Company] | [Dates]\n*   **Feature Engineering at Scale:** Developed reusable **feature store pipelines (Feast/Spark/Polars)** processing 50TB+ of alternative data (satellite, transaction, web-scraped) for systematic equity strategies.\n*   **Time-Series Modeling:** Designed **Temporal Fusion Transformers (TFT)** and **N-BEATS** models for volatility forecasting and risk factor prediction, integrated into portfolio optimization engines via **REST/gRPC APIs**.\n*   **Data Quality & Governance:** Implemented **Great Expectations** and custom **Python validation frameworks** ensuring data integrity for regulatory reporting (SFDR, TCFD) inputs.\n*   **Collaboration:** Partnered with Quant Researchers and Product Managers to define model cards, monitoring dashboards (Grafana/Prometheus), and rollback strategies for high-frequency trading signals.\n\n**DATA SCIENTIST / ML ENGINEER** | [Previous Company] | [Dates]\n*   Built **automated labeling pipelines (Snorkel/Weak Supervision)** in Python, expanding training datasets 10x for ESG taxonomy classification with limited labeled data.\n*   Containerized legacy **R/Scikit-learn** models into standardized **Python/Docker** microservices, enabling cloud migration and version control.\n*   Conducted **A/B testing** and statistical significance analysis for model releases, ensuring robustness against regime change in market data.\n\n---\n\n### KEY PROJECTS & OPEN SOURCE\n*   **FinGPT-ESG:** Fine-tuned **Llama-3-8B** on instruction-tuned ESG report corpus; implemented **QLoRA/PEFT** and **DPO** alignment; deployed via **vLLM** on **RunPod/AWS**. *(GitHub: [link])*\n*   **MLOps Template:** Maintains a production-ready **Cookiecutter template** for Python ML projects (Poetry, Ruff, Pytest, Pre-commit, Hydra config, K8s Helm charts). *(1.2k+ Stars)*\n*   **Alt-Data Pipeline:** Engineered **Ray/Dask** distributed processing framework for unstructured PDF/HTML parsing and entity resolution, reducing ETL runtime 80%.\n\n---\n\n### EDUCATION & CERTIFICATIONS\n*   **M.S. Computer Science / Data Science** | [University Name]\n*   **B.S. Computer Engineering / Mathematics** | [University Name]\n*   **AWS Certified Machine Learning \u2013 Specialty** | **CKA (Certified Kubernetes Administrator)**\n*   **Publications:** [Optional: Relevant paper on ArXiv/Conference e.g., NeurIPS, ICML, KDD, JPM]\n\n---\n\n### MSCI ALIGNMENT (Keywords)\n**ESG & Climate Data \u2022 Factor Models \u2022 Risk Analytics \u2022 Index Construction \u2022 Alternative Data \u2022 Regulatory Tech (SFDR/TCFD) \u2022 Systematic Investing \u2022 Data Quality & Lineage \u2022 Scalable Python Architecture**",
+  "applied": true,
+  "errors": [
+    "indeed search failed: JSearch request failed: 404 Client Error: Not Found for url: https://jsearch.p.rapidapi.com/search?query=AI+Engineer+Mumbai&num_pages=1",
+    "linkedin search failed: JSearch request failed: 404 Client Error: Not Found for url: https://jsearch.p.rapidapi.com/search?query=AI+Engineer+Mumbai&num_pages=1"
+  ]
+}

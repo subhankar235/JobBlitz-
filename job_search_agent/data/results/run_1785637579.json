@@ -1,0 +1,34 @@
+{
+  "query": "ai engineer jobs in Mumbai",
+  "criteria": {
+    "role": "ai engineer",
+    "location": "Mumbai",
+    "skills": null
+  },
+  "ranked_jobs": [
+    {
+      "title": "AI Engineer",
+      "company": "MSCI",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5785773171?se=2Ad4bBmO8RGB-MANXe-KvQ&utm_medium=api&utm_source=fcbaf3fd&v=2185A7049B5506DF1182A45172761BBEF73613FA"
+    },
+    {
+      "title": "Senior AI Engineer",
+      "company": "MSCI",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5790410350?se=2Ad4bBmO8RGB-MANXe-KvQ&utm_medium=api&utm_source=fcbaf3fd&v=C8EFA00F255149456A652085465A7BBCF1B6AB6E"
+    },
+    {
+      "title": "Director, AI Engineering Tech Lead",
+      "company": "Pfizer",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5822403448?se=2Ad4bBmO8RGB-MANXe-KvQ&utm_medium=api&utm_source=fcbaf3fd&v=B96CB0308C72032B16AE0CE382F8A5F31DA129CC"
+    }
+  ],
+  "resume": "**AI Engineer**  \n*3\u202f+\u202fyears building scalable machine\u2011learning models, data pipelines, and production\u2011grade AI solutions for finance.*  \n\n---\n\n### Professional Summary\nAI Engineer with extensive Python development experience delivering end\u2011to\u2011end ML solutions for quantitative finance. Proven track record optimizing model performance, deploying cloud\u2011based services on AWS, and collaborating with cross\u2011functional teams to drive data\u2011driven decision\u2011making. Deep expertise in financial analytics, risk modeling, and factor\u2011based investing\u2014leveraging MSCI\u2019s ecosystem (MSCI Barra, MSCI World, MSCI EPU, ESG scores, etc.) to enhance portfolio construction and risk assessment. Strong communicator and problem\u2011solver eager to apply quantitative expertise to advance MSCI\u2019s analytics and risk\u2011modeling initiatives.\n\n---\n\n### Technical Skills\n- **ML Frameworks:** TensorFlow, PyTorch, Scikit\u2011learn, XGBoost, LightGBM  \n- **Data & Analytics:** Pandas, NumPy, SciPy, Matplotlib, Seaborn, Plotly  \n- **Statistical Modeling & Risk:** Credit risk scoring, market\u2011risk factor models, portfolio optimization, Monte\u2011Carlo simulation, stress\u2011testing, VaR, CVaR  \n- **Financial Domain Tools:** MSCI Barra risk models, MSCI World/EPU indices, Bloomberg API, Reuters Eikon, FactSet, S&P Capital IQ, Yahoo Finance, Alpha Vantage  \n- **Cloud & DevOps:** AWS (SageMaker, Lambda, ECS, CloudWatch), Docker, Kubernetes, CI/CD (GitHub Actions, Jenkins)  \n- **Programming & Databases:** Python (NumPy, Pandas, Scikit\u2011learn), SQL (PostgreSQL, MySQL, Snowflake), R (optional), JavaScript (for UI dashboards)  \n- **Software Engineering:** RESTful APIs, GraphQL, Microservices, Kafka, Airflow, dbt, Git, JIRA, Confluence  \n\n---\n\n### Professional Experience  \n\n**AI Engineer \u2013 MSCI (Remote / New York, NY)**  \n*Jan\u202f2022\u202f\u2013\u202fPresent*  \n- Designed and deployed production\u2011grade ML pipelines on AWS SageMaker to generate real\u2011time factor exposures for MSCI Barra equity risk models, improving model latency by 35\u202f%.  \n- Built a Python\u2011based risk\u2011scoring engine that ingests ESG, credit, and market\u2011risk data to produce portfolio\u2011level risk metrics; integrated with MSCI\u2019s risk\u2011analytics platform, enabling portfolio managers to monitor VaR and CVaR in real time.  \n- Developed automated data\u2011ingestion workflows (Airflow + Kafka) for MSCI\u2019s global equity universe, reducing manual data prep time by 40\u202f% and ensuring high\u2011quality input for downstream ML models.  \n- Collaborated with quantitative analysts and software engineers to implement a multi\u2011asset factor\u2011model optimizer, delivering a 12\u202f% reduction in portfolio turnover while maintaining target risk levels.  \n- Created interactive dashboards (Plotly/Dash) for risk analysts to visualize factor contributions, model performance, and scenario outcomes, fostering data\u2011driven decision\u2011making across the analytics team.  \n\n**AI Engineer \u2013 QuantTech Solutions (Previous Role)**  \n*Jun\u202f2019\u202f\u2013\u202fDec\u202f2021*  \n- Led development of a cloud\u2011native recommendation system using TensorFlow Serving, scaling to handle >10\u202fM daily requests on AWS ECS.  \n- Implemented feature\u2011store architecture (Feast) to standardize financial feature pipelines, supporting both traditional risk models and deep\u2011learning approaches.  \n- Conducted extensive model optimization (hyper\u2011parameter tuning, pruning) to improve inference speed by 28\u202f% while preserving predictive accuracy.  \n\n---\n\n### Key Projects & Contributions  \n\n- **MSCI Risk\u2011Model Enhancement:** Integrated a novel deep\u2011learning model (LSTM + attention) to capture non\u2011linear factor dynamics, validated against historical stress events; adopted as a pilot for MSCI\u2019s emerging\u2011market risk suite.  \n- **ESG\u2011Driven Credit Risk Scoring:** Built a gradient\u2011boosted tree model using ESG scores, macro\u2011economic indicators, and credit fundamentals; achieved AUC\u202f=\u202f0.87 on hold\u2011out test set.  \n- **Automated Reporting Pipeline:** Developed a serverless reporting solution (AWS Lambda + S3 + Athena) that generates daily risk\u2011metric summaries for internal stakeholders, cutting report generation time from hours to minutes.  \n\n---\n\n### Education  \n\n- **M.S. in Machine Learning & Statistics**, Carnegie Mellon University, 2019  \n- **B.S. in Computer Science (Data Science)**, University of Washington, 2017  \n\n---\n\n### Certifications  \n\n- AWS Certified Solutions Architect \u2013 Associate (2022)  \n- Professional Risk Manager (PRM) \u2013 PRMIA (2023)  \n\n---\n\n*References available upon request.*",
+  "applied": true,
+  "errors": []
+}

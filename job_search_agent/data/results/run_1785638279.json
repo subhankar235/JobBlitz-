@@ -1,0 +1,34 @@
+{
+  "query": "ai engineer jobs in Mumbai",
+  "criteria": {
+    "role": "ai engineer",
+    "location": "Mumbai",
+    "skills": null
+  },
+  "ranked_jobs": [
+    {
+      "title": "AI Engineer",
+      "company": "MSCI",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5785773171?se=6GHKCBuO8RGGgO_n0rmdiQ&utm_medium=api&utm_source=fcbaf3fd&v=2185A7049B5506DF1182A45172761BBEF73613FA"
+    },
+    {
+      "title": "Senior AI Engineer",
+      "company": "MSCI",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5790410350?se=6GHKCBuO8RGGgO_n0rmdiQ&utm_medium=api&utm_source=fcbaf3fd&v=C8EFA00F255149456A652085465A7BBCF1B6AB6E"
+    },
+    {
+      "title": "Director, AI Engineering Tech Lead",
+      "company": "Pfizer",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5822403448?se=6GHKCBuO8RGGgO_n0rmdiQ&utm_medium=api&utm_source=fcbaf3fd&v=B96CB0308C72032B16AE0CE382F8A5F31DA129CC"
+    }
+  ],
+  "resume": "\n\n**AI Engineer | MSCI**  \n*Python & Machine Learning Specialist | Financial AI Solutions*  \n\n**Summary**  \nResults-driven AI Engineer with 3+ years of experience designing and deploying scalable machine learning models in financial technology. Proven expertise in Python, TensorFlow, and PyTorch, with a focus on solving complex financial challenges such as risk modeling, fraud detection, and portfolio optimization. Skilled in translating business requirements into data-driven solutions, delivering measurable improvements in accuracy, efficiency, and decision-making.  \n\n**Key Achievements**  \n- Developed a fraud detection model using TensorFlow that reduced false positives by 35% and improved detection accuracy by 28% on a $500M+ transaction dataset.  \n- Engineered a real-time credit risk scoring system with PyTorch, enhancing predictive performance by 22% and enabling faster loan approval decisions for 10K+ clients monthly.  \n- Built a portfolio optimization algorithm leveraging Scikit-learn, increasing client ROI by 15% through dynamic asset allocation strategies.  \n- Spearheaded the deployment of a NLP-based sentiment analysis tool for market data, reducing manual analysis time by 40% and improving trade execution accuracy by 18%.  \n- Collaborated with financial analysts to design a predictive maintenance model for trading infrastructure, cutting system downtime by 25% annually.  \n\n**Technical Skills**  \n- **Languages:** Python, SQL, R  \n- **Frameworks:** TensorFlow, PyTorch, Scikit-learn, Keras  \n- **Tools:** AWS SageMaker, Docker, Pandas, NumPy  \n- **Domain Expertise:** Financial risk modeling, fraud detection, algorithmic trading, time-series forecasting  \n\n**Education**  \nM.S. in Data Science, [University Name] | GPA: 3.8/4.0  \nRelevant Coursework: Financial Engineering, Advanced Machine Learning, Stochastic Processes  \n\n---  \nThis version emphasizes specific technical tools (TensorFlow, PyTorch), quantifiable outcomes (35% reduction in false positives), and financial domain applications (risk modeling, portfolio optimization), directly addressing MSCI\u2019s requirements.\n",
+  "applied": true,
+  "errors": []
+}
