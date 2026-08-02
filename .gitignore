@@ -1,29 +1,52 @@
+# Environment variables / secrets
+.env
+.env.local
+.env.*.local
+
 # Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-dist/
+*$py.class
+*.so
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
 *.egg
+
+# Virtual environments
 venv/
-.venv/
 env/
+ENV/
+.venv/
 
-# Environment variables
-.env
-.env.local
-
-# IDE
+# IDE / editor
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# OS
 .DS_Store
-Thumbs.db
 
-# Project-specific
-browser_data/
-*.log
+# Project-specific runtime output
+data/results/*.json
+!data/results/.gitkeep
+
+# LangGraph checkpoints (if you ever persist to disk/sqlite instead of MemorySaver)
+*.sqlite
 *.db
+checkpoints/
+
+# Logs
+*.log
+logs/
