@@ -1,0 +1,56 @@
+{
+  "query": "python developer jobs in Mumbai",
+  "criteria": {
+    "role": "python developer",
+    "location": "Mumbai",
+    "skills": [
+      "Python"
+    ]
+  },
+  "ranked_jobs": [
+    {
+      "title": "Python Developer",
+      "company": "Deqode",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/details/5710913309?utm_medium=api&utm_source=fcbaf3fd"
+    },
+    {
+      "title": "Python Developer",
+      "company": "Pluginlive",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/details/4829260179?utm_medium=api&utm_source=fcbaf3fd"
+    },
+    {
+      "title": "Python developer",
+      "company": "Deqode",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/details/5349949332?utm_medium=api&utm_source=fcbaf3fd"
+    },
+    {
+      "title": "python developer",
+      "company": "Risosu Consulting LLP",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/details/5598463954?utm_medium=api&utm_source=fcbaf3fd"
+    },
+    {
+      "title": "Python Developer",
+      "company": "ZipGrid - MyAashiana Management Services",
+      "location": "Mumbai, Maharashtra",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/details/2042125725?utm_medium=api&utm_source=fcbaf3fd"
+    }
+  ],
+  "resume": "**John Doe**  \nemail@example.com \u2022 (555) 123\u20114567 \u2022 LinkedIn: linkedin.com/in/johndoe \u2022 GitHub: github.com/johndoe  \n\n**Professional Summary**  \nResults\u2011driven Python Developer with 3 years of experience building scalable RESTful services using FastAPI. Proven ability to design clean, maintainable code, optimize performance, and collaborate in Agile teams. Passionate about delivering high\u2011quality backend solutions that power innovative products \u2014 eager to contribute to Deqode\u2019s mission of crafting cutting\u2011edge software for global clients.\n\n**Core Competencies**  \n- Python 3.x \u2022 FastAPI \u2022 Pydantic \u2022 AsyncIO  \n- RESTful API design & OpenAPI (Swagger) documentation  \n- SQL & NoSQL databases (PostgreSQL, MySQL, MongoDB)  \n- Docker, Kubernetes, CI/CD pipelines (GitHub Actions)  \n- Test\u2011driven development (pytest, unittest)  \n- Version control (Git) & code review best practices  \n- Linux/Unix environments \u2022 AWS basics (EC2, S3, RDS)  \n\n**Professional Experience**  \n**Backend Engineer** \u2013 TechSolutions Inc., Remote  \n*Jan\u202f2022\u202f\u2013\u202fPresent*  \n- Developed and maintained micro\u2011services in Python/FastAPI handling >2\u202fM requests/day, reducing latency by 30% through async processing and caching strategies.  \n- Designed RESTful APIs with automatic OpenAPI specs, enabling frontend teams to accelerate feature delivery by 25%.  \n- Implemented automated test suites (pytest) achieving >90% code coverage, cutting production bugs by 40%.  \n- Containerized services with Docker and orchestrated deployments via Kubernetes, improving release frequency from bi\u2011weekly to weekly.  \n- Collaborated with cross\u2011functional squads in Scrum ceremonies, refining user stories and ensuring timely sprint completion.  \n\n**Software Developer** \u2013 DataWave Ltd., Bengaluru  \n*Mar\u202f2020\u202f\u2013\u202fDec\u202f2021*  \n- Built data\u2011ingestion pipelines using Python and FastAPI, processing 500\u202fGB of daily logs for analytics platforms.  \n- Optimized SQL queries and introduced indexing, boosting query performance by 35%.  \n- Mentored junior developers on Python best practices and code review processes.  \n\n**Education**  \nBachelor of Technology in Computer Science  \nXYZ University, Bengaluru \u2013 2020  \n\n**Certifications**  \n- FastAPI Fundamentals \u2013 Coursera (2023)  \n- AWS Certified Solutions Architect \u2013 Associate (in progress)  \n\n---  \n*References available upon request*",
+  "applied": false,
+  "errors": [
+    "indeed search failed: JSearch request failed: 404 Client Error: Not Found for url: https://jsearch.p.rapidapi.com/search?query=python+developer+Mumbai&num_pages=1",
+    "linkedin search failed: JSearch request failed: 404 Client Error: Not Found for url: https://jsearch.p.rapidapi.com/search?query=python+developer+Mumbai&num_pages=1",
+    "apply attempt 1 failed: ApplyPortal-Deqode timed out",
+    "apply attempt 2 failed: ApplyPortal-Deqode timed out",
+    "apply attempt 3 failed: ApplyPortal-Deqode timed out"
+  ]
+}
