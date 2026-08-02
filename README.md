@@ -1,184 +1,223 @@
-# JobBlitz
+# 🧭 Job Search AI Agent (LangGraph)
 
-> An autonomous AI agent that finds, filters, and applies to jobs on your behalf — while you sleep.
+An autonomous job-search agent that understands a natural language query, searches real job APIs in parallel, filters/ranks results, pauses for human approval, tailors a resume, retries on failure, and applies — all orchestrated as a **LangGraph** state machine.
 
-JobBlitz is an open-source AI agent built with LangChain, GPT-4o, Firecrawl, and Playwright. It searches job portals in real time, reads each listing, decides if it matches your profile, fills the application form, uploads your CV, and sends you a Telegram alert — all automatically.
+Built as a teaching project to demonstrate every core LangGraph concept in one coherent, working agent: conditional edges, loops/retries, fan-out/fan-in parallelism, human-in-the-loop interrupts, tool calling, and error recovery.
 
 ---
 
-## How it works
+## 🗺️ Architecture
 
 ```
-Tavily Search
-     ↓
-Find job URLs (Naukri, LinkedIn, Internshala)
-     ↓
-Firecrawl scrapes each job description
-     ↓
-GPT-4o checks: does this match my profile?
-     ↓
-Already applied? → Skip (SQLite check)
-     ↓
-Playwright: login → fill form → upload CV → submit
-     ↓
-Telegram alert sent
-     ↓
-SQLite: log as applied
+User Query
+    │
+    ▼
+Understand Query
+    │
+    ▼
+Enough Info? ──No──► Ask Clarification ──┐
+    │Yes                                  │ (loops back)
+    ▼                                     │
+Search Jobs (fan-out: Indeed│LinkedIn│Adzuna, parallel) ◄┘
+    │ (fan-in)
+    ▼
+Filter Jobs
+    │
+Too Many/Few? ──Few──► Search Another Source ──┐ (bounded loop)
+    │Many                                        │
+    ▼◄───────────────────────────────────────────┘
+Summarize ──► Rank Jobs
+                  │
+          Human Approval? ──Reject──► Change Filters ──┐ (loops back to Filter Jobs)
+                  │Approve                               │
+                  ▼◄──────────────────────────────────────┘
+          Generate Resume
+                  │
+          Resume Good? ──No──► Improve Resume ──┐ (bounded loop)
+                  │Yes                            │
+                  ▼◄───────────────────────────────┘
+          Apply to Job ──Fail──► retry (bounded loop)
+                  │Success/give up
+                  ▼
+          Save Results ──► END
 ```
 
 ---
 
-## Features
+## ⚙️ Core LangGraph Concepts Demonstrated
 
-- **Live job search** — Tavily finds fresh listings every morning across multiple portals
-- **Smart filtering** — GPT reads each JD and skips jobs that don't match your skills or preferences
-- **Auto apply** — Playwright handles login, form filling, CV upload, and submission end to end
-- **No duplicates** — SQLite tracks every job seen and applied to across all runs
-- **Telegram alerts** — instant notification for every successful application
-- **Scheduled runs** — APScheduler runs the full pipeline every morning automatically
-
----
-
-## Tech stack
-
-| Layer | Tool | Purpose |
-|---|---|---|
-| Search | Tavily | Find live job listing URLs |
-| Scraping | Firecrawl | Read public job description pages |
-| Browser | Playwright | Login, fill forms, submit applications |
-| Agent brain | LangChain | Orchestrate tools, decide next action |
-| LLM | GPT-4o | Filter jobs, tailor answers, reason |
-| Storage | SQLite | Track applied jobs, avoid duplicates |
-| Alerts | Telegram Bot | Notify on every successful apply |
-| Scheduler | APScheduler | Run every morning automatically |
+| Concept | Where |
+|---|---|
+| **Conditional edges** | `route_enough_info`, `route_job_count`, `route_human_approval`, `route_resume_quality`, `route_apply_result` |
+| **Loops & bounded retries** | Search retry (`search_round`), resume retry (`resume_attempts`), apply retry (`apply_attempts`) — every loop has a state-tracked counter checked by its routing function |
+| **Fan-out / fan-in (parallel execution)** | `dispatch_search` → 3 parallel nodes (`search_indeed_node`, `search_linkedin_node`, `search_remoteco_node`) → merge into `filter_jobs` via `Annotated[list, operator.add]` on the `jobs` field |
+| **Human-in-the-loop** | `ask_clarification`, `human_approval`, `change_filters` — all use `interrupt()`, pausing the graph and resuming via `Command(resume=...)` |
+| **State updates** | Every node returns only the keys it changes; LangGraph merges them into one shared `JobSearchState` |
+| **Tool calling** | `tools/job_search_tools.py` (JSearch + Adzuna APIs), `tools/resume_tools.py` (LLM-based resume generation/critique) |
+| **Error recovery** | Every tool call is wrapped in `try/except ToolError`, logged to the accumulating `errors` field, and never crashes the graph — failing branches just contribute empty results |
 
 ---
 
-## Project structure
+## 📁 Folder Structure
 
 ```
-jobblitz/
-├── main.py              # entry point, runs the agent
-├── agent.py             # LangChain agent + tool definitions
-├── tools/
-│   ├── search.py        # Tavily search tool
-│   ├── scraper.py       # Firecrawl scrape tool
-│   ├── browser.py       # Playwright login + apply tool
-│   └── alerter.py       # Telegram notification tool
-├── db/
-│   └── tracker.py       # SQLite job tracker
-├── config.py            # your profile, preferences, target roles
-├── .env                 # API keys (never commit this)
+job_search_agent/
 ├── requirements.txt
-└── README.md
+├── .env.example
+├── .gitignore
+├── main.py
+│
+├── graph/
+│   ├── __init__.py
+│   ├── state.py        # Shared schema every node reads/writes
+│   ├── nodes.py         # One function per box in the diagram
+│   ├── routing.py       # One function per diamond in the diagram
+│   └── builder.py       # Wires nodes + routing into the compiled graph
+│
+├── tools/
+│   ├── __init__.py
+│   ├── job_search_tools.py   # JSearch (Indeed/LinkedIn) + Adzuna API calls
+│   └── resume_tools.py        # LLM-based resume generation/critique
+│
+├── utils/
+│   ├── __init__.py
+│   └── llm.py           # Single OpenRouter client factory
+│
+└── data/
+    └── results/          # Saved JSON output per run (.gitkeep tracked, files ignored)
 ```
 
 ---
 
-## Setup
+## 🔑 Prerequisites & API Keys
 
-### 1. Clone the repo
+You need three free-tier accounts:
+
+| Service | Used for | Get a key |
+|---|---|---|
+| **OpenRouter** | All LLM calls (query parsing, resume writing/critique, ranking logic) | [openrouter.ai](https://openrouter.ai) |
+| **RapidAPI (JSearch)** | Indeed + LinkedIn job listings | [rapidapi.com](https://rapidapi.com) → search "JSearch" |
+| **Adzuna** | Independent third job-search source | [developer.adzuna.com](https://developer.adzuna.com) |
+
+---
+
+## 🚀 Setup
 
 ```bash
-git clone https://github.com/yourname/jobblitz.git
-cd jobblitz
-```
+# 1. Clone / enter the project
+cd job_search_agent
 
-### 2. Install dependencies
+# 2. Create a virtual environment
+python -m venv venv
+source venv/bin/activate      # Windows: venv\Scripts\activate
 
-```bash
+# 3. Install dependencies
 pip install -r requirements.txt
-playwright install chromium
+
+# 4. Configure environment variables
+cp .env.example .env
+# then edit .env and paste in your real keys
+
+# 5. Ensure the output folder exists
+mkdir -p data/results
+touch data/results/.gitkeep
 ```
 
-### 3. Set up your `.env`
+### `.env` contents required
 
 ```env
-OPENAI_API_KEY=your_openai_key
-TAVILY_API_KEY=your_tavily_key
-FIRECRAWL_API_KEY=your_firecrawl_key
-TELEGRAM_BOT_TOKEN=your_bot_token
-TELEGRAM_CHAT_ID=your_chat_id
+OPENROUTER_API_KEY=your-openrouter-key-here
+OPENROUTER_MODEL=anthropic/claude-3.5-sonnet
+
+RAPIDAPI_KEY=your-rapidapi-key-here
+
+ADZUNA_APP_ID=your-adzuna-app-id
+ADZUNA_APP_KEY=your-adzuna-app-key
+ADZUNA_COUNTRY=us
 ```
 
-### 4. Edit your profile in `config.py`
+---
 
-```python
-MY_PROFILE = {
-    "name": "Rahul Sharma",
-    "role": "AI Engineer",
-    "skills": ["Python", "LangChain", "RAG", "Fine-tuning", "FastAPI"],
-    "experience_years": 2,
-    "location": "Bangalore",
-    "max_ctc": "12 LPA",
-    "cv_path": "resume/rahul_sharma_cv.pdf",
-}
-
-JOB_SEARCH_QUERIES = [
-    "AI Engineer jobs Bangalore 2025",
-    "LLM Engineer fresher jobs India",
-    "Python developer Gen AI Bangalore",
-]
-
-PORTALS = ["naukri.com", "linkedin.com/jobs", "internshala.com"]
-RUN_EVERY_HOURS = 6
-```
-
-### 5. Run
+## ▶️ Running the Agent
 
 ```bash
 python main.py
 ```
 
-The agent runs once immediately on start, then every 6 hours automatically.
+You'll be prompted for:
+1. **Job you're looking for** (e.g. `"backend engineer, remote"`)
+2. **A brief background/skills summary** (used to tailor the resume)
+
+The agent will then run autonomously — searching, filtering, ranking — and will **pause twice** for your input in the terminal:
+
+- Once if your query is missing details (role/location)
+- Once to approve the ranked job shortlist before it writes a resume and applies
+
+Example interaction:
+
+```
+What job are you looking for? backend engineer
+Briefly describe your background/skills: 5 years Python, Django, AWS, Postgres
+
+--- HUMAN INPUT NEEDED ---
+I still need: location. Could you clarify?
+> remote, US only
+
+--- HUMAN INPUT NEEDED ---
+Approve these ranked jobs & current filters? (yes/no)
+[... top 5 jobs shown ...]
+> yes
+
+--- DONE ---
+Applied: True
+Saved to: data/results/run_1735689234.json
+```
 
 ---
 
-## Environment variables
+## 📄 Output
 
-| Variable | Description |
+Every completed run writes a JSON file to `data/results/`:
+
+```json
+{
+  "query": "backend engineer",
+  "criteria": {"role": "backend engineer", "location": "remote, US only", "skills": [...]},
+  "ranked_jobs": [...],
+  "resume": "...",
+  "applied": true,
+  "errors": []
+}
+```
+
+The `errors` array is never omitted — even successful runs show it (empty if nothing failed), so you always have a clear audit trail of what the agent tried and any transient failures it recovered from along the way.
+
+---
+
+## 🛠️ Extending This Project
+
+| Want to... | Change only this |
 |---|---|
-| `OPENAI_API_KEY` | GPT-4o for filtering and reasoning |
-| `TAVILY_API_KEY` | Live job search across portals |
-| `FIRECRAWL_API_KEY` | Scrape job description pages |
-| `TELEGRAM_BOT_TOKEN` | Your Telegram bot token |
-| `TELEGRAM_CHAT_ID` | Your Telegram chat ID for alerts |
+| Add a 4th job source | `tools/job_search_tools.py` + add one node in `nodes.py` + wire 2 edges in `builder.py` |
+| Swap LLM provider/model | `.env` (`OPENROUTER_MODEL`) — no code changes |
+| Make checkpoints survive a restart | `graph/builder.py`: swap `MemorySaver()` → `SqliteSaver.from_conn_string(...)` |
+| Change retry limits | `graph/routing.py`: edit `MAX_SEARCH_ROUNDS`, `MAX_RESUME_ATTEMPTS`, `MAX_APPLY_ATTEMPTS`, `FEW_JOBS_THRESHOLD` |
+| Real application submission | `tools/job_search_tools.py`: replace simulated `apply_to_job` with browser automation (e.g. Playwright) against `job["url"]` |
 
 ---
 
-## Requirements
+## ⚠️ Known Limitations
 
-```
-langchain
-langchain-openai
-langchain-community
-firecrawl-py
-playwright
-tavily-python
-python-telegram-bot
-apscheduler
-python-dotenv
-sqlite3
-```
+- `apply_to_job` is **simulated** — no public API exists for auto-submitting job applications; a real implementation would need browser automation or manual handoff.
+- `MemorySaver` checkpoints live only in RAM — killing the process mid-`interrupt()` loses that paused state (see extension table above for the fix).
+- Free-tier API quotas (JSearch, Adzuna) are limited — repeated test runs during development can exhaust them quickly; consider caching results locally while iterating.
 
 ---
 
-## Roadmap
+## 📚 Recommended Reading Order (if learning LangGraph from this repo)
 
-- [ ] Phase 1 — Core agent (search + scrape + apply + notify)
-- [ ] Phase 2 — Resume tailoring with ChromaDB (match experience to each JD)
-- [ ] Phase 3 — Dashboard to view all applications and statuses
-- [ ] Phase 4 — Support for more portals (Wellfound, Cutshort, AngelList)
-- [ ] Phase 5 — Interview scheduler integration
-
----
-
-## Important note
-
-Use JobBlitz responsibly. Check each portal's terms of service before running automated applications. Some platforms prohibit automated access. JobBlitz is intended for personal use only.
-
----
-
-## License
-
-MIT — free to use, modify, and share.
+1. `graph/state.py` — the shared contract every node depends on
+2. `graph/nodes.py` — the actual work, one function per diagram box
+3. `graph/routing.py` — the branching decisions, one function per diagram diamond
+4. `graph/builder.py` — where the diagram becomes an actual compiled graph
+5. `main.py` — how a run is invoked, and how `interrupt()`/`Command(resume=...)` pause and continue execution
