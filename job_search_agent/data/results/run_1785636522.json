@@ -1,0 +1,30 @@
+{
+  "query": "software engineer jobs in Bangalore",
+  "criteria": {
+    "role": "software engineer",
+    "location": "Bangalore",
+    "skills": null
+  },
+  "ranked_jobs": [
+    {
+      "title": "Software Engineer",
+      "company": "ABB",
+      "location": "Bangalore, Karnataka",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5806276949?se=omSk-BaO8RGB4M326i3_BQ&utm_medium=api&utm_source=fcbaf3fd&v=B659B59E277C115DC1486C45335FF0AFFC57D4FA"
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "ABB",
+      "location": "Bangalore, Karnataka",
+      "source": "Adzuna",
+      "url": "https://www.adzuna.in/land/ad/5801462812?se=omSk-BaO8RGB4M326i3_BQ&utm_medium=api&utm_source=fcbaf3fd&v=2858B8D6D5AF1027EF954A51DE988F4FD40D119E"
+    }
+  ],
+  "resume": "**John Doe**  \nSoftware Engineer \u2013 Python Developer  \njohn.doe@email.com | +1\u202f555\u2011123\u20114567 | LinkedIn: linkedin.com/in/johndoe | Austin, TX  \n\n---\n\n### PROFESSIONAL SUMMARY  \nPython\u2011centric software engineer with 3\u202fyears of experience delivering scalable, high\u2011performance solutions for industrial automation and data\u2011driven applications. Proven track record of collaborating with cross\u2011functional teams to design, develop, and deploy embedded\u2011Python services, RESTful APIs, and real\u2011time data pipelines that enhance operational efficiency and reduce downtime. Adept at translating complex engineering requirements into clean, maintainable code while adhering to rigorous quality standards and industry best practices. Passionate about leveraging cloud, IoT, and edge computing to enable ABB\u2019s vision of intelligent, sustainable electrification and automation.\n\n---\n\n### TECHNICAL SKILLS  \n- **Languages:** Python\u202f3.8+, JavaScript (Node.js), SQL, Bash  \n- **Frameworks/Libraries:** FastAPI, Django, Flask, Pandas, NumPy, SciPy, MQTT, ROS  \n- **Databases:** PostgreSQL, MySQL, InfluxDB, Redis  \n- **DevOps & Cloud:** Docker, Kubernetes, GitLab CI/CD, AWS (Lambda, S3, DynamoDB), Azure IoT Hub  \n- **Testing & Quality:** PyTest, unittest, Sphinx, SonarQube, Code Coverage, TDD/BDD  \n- **Tools:** Git, Jira, Confluence, VS Code, PyCharm, Postman, Grafana, Prometheus  \n\n---\n\n### PROFESSIONAL EXPERIENCE  \n\n**Software Engineer \u2013 Automation Solutions**  \n*TechNova Systems, Austin, TX* | Jan\u202f2021\u202f\u2013\u202fPresent  \n- Designed and implemented a Python\u2011based data ingestion pipeline that processed 1\u202fM+ sensor records per hour, reducing data latency by 35\u202f% for real\u2011time monitoring dashboards.  \n- Developed a FastAPI microservice exposing REST endpoints for PLC command execution, achieving <50\u202fms response time and 99.9\u202f% uptime in production.  \n- Integrated MQTT broker with edge devices to enable bi\u2011directional communication; decreased network traffic by 22\u202f% through payload optimization.  \n- Collaborated with electrical engineers to translate PLC logic into Python scripts, enabling automated fault detection and predictive maintenance.  \n- Authored comprehensive unit and integration tests (coverage\u202f>\u202f90\u202f%) and introduced CI/CD pipelines that cut release cycle time from 2\u202fweeks to 3\u202fdays.  \n\n**Junior Python Developer**  \n*GreenGrid Energy, Dallas, TX* | Jun\u202f2019\u202f\u2013\u202fDec\u202f2020  \n- Built a Django\u2011based web portal for monitoring distributed energy resources, handling 10\u202fk concurrent users with zero downtime.  \n- Implemented data visualization modules using Plotly and Grafana, improving stakeholder insight into energy consumption patterns.  \n- Contributed to API design and documentation (OpenAPI/Swagger), reducing onboarding time for new developers by 40\u202f%.  \n\n---\n\n### EDUCATION  \n\n**Bachelor of Science in Computer Science**  \nUniversity of Texas at Austin | 2015\u202f\u2013\u202f2019  \n\n---\n\n### CERTIFICATIONS  \n\n- AWS Certified Developer \u2013 Associate (2022)  \n- Certified Scrum Developer (CSM) (2021)  \n\n---\n\n### PROFESSIONAL AFFILIATIONS  \n\n- IEEE Member \u2013 Power & Energy Society  \n- Python Software Foundation Community Contributor  \n\n---",
+  "applied": true,
+  "errors": [
+    "indeed search failed: JSearch request failed: 404 Client Error: Not Found for url: https://jsearch.p.rapidapi.com/search?query=software+engineer+Bangalore&num_pages=1",
+    "linkedin search failed: JSearch request failed: 404 Client Error: Not Found for url: https://jsearch.p.rapidapi.com/search?query=software+engineer+Bangalore&num_pages=1"
+  ]
+}
