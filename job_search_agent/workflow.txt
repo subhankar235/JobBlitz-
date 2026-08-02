@@ -1,0 +1,23 @@
+job_search_agent/
+├── requirements.txt
+├── .env.example
+├── main.py
+│
+├── graph/
+│   ├── __init__.py
+│   ├── state.py        # The shared "memory" every node reads/writes
+│   ├── nodes.py         # The actual worker functions (one per box in your diagram)
+│   ├── routing.py       # The decision functions (the diamonds in your diagram)
+│   └── builder.py       # Wires nodes + routing into the actual graph
+│
+├── tools/
+│   ├── __init__.py
+│   ├── job_search_tools.py   # "Tools" the LLM/nodes can call (search APIs, mocked here)
+│   └── resume_tools.py       # Resume generation/critique tools
+│
+├── utils/
+│   ├── __init__.py
+│   └── llm.py           # One place that builds the LLM client
+│
+└── data/
+    └── results/          # Where final output gets saved
